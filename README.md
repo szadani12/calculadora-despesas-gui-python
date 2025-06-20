@@ -10,6 +10,9 @@ O objetivo é aplicar conceitos de lógica, organização de código, controle d
 - Calcular total de despesas
 - Remover despesas
 - Interface gráfica intuitiva com Tkinter
+  
+![Capturar](https://github.com/user-attachments/assets/d0c8fa75-1e86-4004-ac44-e7be901adb93)
+
 
 ## Melhorias Sugeridas
 - Implementar categorias de despesas
