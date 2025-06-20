@@ -1,4 +1,4 @@
-# Calculadora de Despesas Pessoais - Interface Gráfica 🧮💸
+# Calculadora de Despesas Pessoais - Interface Gráfica
 
 ## Descrição
 Projeto desenvolvido como atividade do módulo de **Lógica de Programação** do curso de **Desenvolvimento de Sistemas** (SENAI).  
