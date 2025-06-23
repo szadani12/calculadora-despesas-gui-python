@@ -13,10 +13,37 @@ def adicionar_despesa():
     if nome:
         try:
             valor = float(simpledialog.askstring("Adicionar Despesa", "Valor da despesa (R$):"))
-            despesas.append({'nome': nome, 'valor': valor})
-            messagebox.showinfo("Sucesso", "Despesa adicionada com sucesso!")
+
+            # Nova janela para escolher a categoria
+            categoria_window = tk.Toplevel(root)
+            categoria_window.title("Selecionar Categoria")
+
+            # Texto explicativo
+            tk.Label(categoria_window, text="Selecione a categoria da despesa:").pack(pady=10)
+
+            # Variável para guardar a categoria escolhida
+            categoria_var = tk.StringVar(value="Alimentação")
+
+            # Lista de categorias fixas
+            categorias = ["Alimentação", "Transporte", "Lazer"]
+            categoria_combo = ttk.Combobox(categoria_window, textvariable=categoria_var, values=categorias, state="readonly")
+            categoria_combo.pack(pady=5)
+
+            # Função chamada ao clicar em "Confirmar"
+            def confirmar_categoria():
+                categoria = categoria_var.get() # Pega a categoria selecionada
+                # Adiciona a despesa com nome, valor e categoria
+                despesas.append({'nome': nome, 'valor': valor, 'categoria': categoria})
+                messagebox.showinfo("Sucesso", "Despesa adicionada com sucesso!")
+                categoria_window.destroy()
+
+            # Botão para confirmar e adicionar a despesa
+            btn_confirmar = tk.Button(categoria_window, text="Confirmar", command=confirmar_categoria)
+            btn_confirmar.pack(pady=10)
+
         except:
             messagebox.showerror("Erro", "Valor inválido!")
+
 
 def listar_despesas():
     if not despesas:
@@ -58,24 +85,24 @@ def calcular_total():
 root = tk.Tk()
 root.title("Calculadora de Despesas")
 root.geometry("400x400")
-root.config(bg="#f2f2f2")
+root.config(bg="#5E1212")
 
-titulo = tk.Label(root, text="Calculadora de Despesas", font=("Arial", 18, "bold"), bg="#f2f2f2")
+titulo = tk.Label(root, text="CALCULADORA DE DESPESAS", font=("Arial", 18, "bold"), bg="#f2f2f2")
 titulo.pack(pady=20)
 
-btn_adicionar = tk.Button(root, text="Adicionar Despesa", width=30, height=2, command=adicionar_despesa)
+btn_adicionar = tk.Button(root, text="ADICIONAR DESPESA", font=("Arial", 12, "bold"), width=25, height=2, command=adicionar_despesa)
 btn_adicionar.pack(pady=5)
 
-btn_listar = tk.Button(root, text="Listar Despesas", width=30, height=2, command=listar_despesas)
+btn_listar = tk.Button(root, text="LISTAR DESPESA", font=("Arial", 12, "bold"), width=25, height=2, command=listar_despesas)
 btn_listar.pack(pady=5)
 
-btn_remover = tk.Button(root, text="Remover Despesa", width=30, height=2, command=remover_despesa)
+btn_remover = tk.Button(root, text="REMOVER DESPESA", font=("Arial", 12, "bold"), width=25, height=2, command=remover_despesa)
 btn_remover.pack(pady=5)
 
-btn_total = tk.Button(root, text="Calcular Total", width=30, height=2, command=calcular_total)
+btn_total = tk.Button(root, text="CALCULAR TOTAL", font=("Arial", 12, "bold"), width=25, height=2, command=calcular_total)
 btn_total.pack(pady=5)
 
-btn_sair = tk.Button(root, text="Sair", width=30, height=2, command=root.quit)
+btn_sair = tk.Button(root, text="SAIR", font=("Arial", 12, "bold"), width=25, height=2, command=root.quit)
 btn_sair.pack(pady=20)
 
 root.mainloop()
