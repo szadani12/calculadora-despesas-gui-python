@@ -54,7 +54,7 @@ def calcular_total():
     total = sum(d['valor'] for d in despesas)
     messagebox.showinfo("Total de Despesas", f"O total das despesas é: R$ {total:.2f}")
 
-# 🪟 Janela principal
+# Janela principal
 root = tk.Tk()
 root.title("Calculadora de Despesas")
 root.geometry("400x400")
