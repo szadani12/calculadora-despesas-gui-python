@@ -16,7 +16,7 @@ O objetivo é aplicar conceitos de lógica, organização de código, controle d
 
 ## Melhorias Sugeridas
 - Implementar categorias de despesas
-- Salvar dados em arquivo (txt, csv ou json)
+- Salvar dados em arquivo (txt ou csv)
 - Validação de dados de entrada
 - Geração de relatórios
 - Inclusão de gráficos
